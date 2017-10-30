@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telas.CadastroControle">
+   <children>
+      <Pane prefHeight="600.0" prefWidth="800.0">
+         <children>
+            <Text layoutX="236.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Informaçoes pessoais">
+               <font>
+                  <Font name="Arial" size="44.0" />
+               </font>
+            </Text>
+            <Text layoutX="39.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome" wrappingWidth="45.330078125">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="39.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPF:" wrappingWidth="45.330078125">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="38.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sobrenome" wrappingWidth="89.330078125">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <TextField fx:id="tfSobrenome" layoutX="128.0" layoutY="127.0" />
+            <TextField fx:id="tfNome" layoutX="128.0" layoutY="89.0" />
+            <TextField fx:id="tfCPF" layoutX="128.0" layoutY="169.0" />
+            <Text layoutX="436.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="8.33008074760437">
+               <font>
+                  <Font name="System Bold Italic" size="33.0" />
+               </font>
+            </Text>
+            <Button fx:id="btnLogin" layoutX="410.0" layoutY="561.0" mnemonicParsing="false" onAction="#onLogin" text="LOGIN" />
+            <Button fx:id="btnSalvar" layoutX="326.0" layoutY="561.0" mnemonicParsing="false" onAction="#onSalvar" text="SALVAR" />
+            <Text layoutX="39.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SEXO:" wrappingWidth="45.330078125">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <RadioButton fx:id="rdMaculino" layoutX="127.0" layoutY="218.0" mnemonicParsing="false" onAction="#onMasculino" text="Masculino">
+               <toggleGroup>
+                  <ToggleGroup fx:id="grupoSexo" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="rdFeminino" layoutX="226.0" layoutY="218.0" mnemonicParsing="false" onAction="#onFeminino" text="Feminino" toggleGroup="$grupoSexo" />
+            <Text layoutX="38.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data De Nascimento :" wrappingWidth="177.330078125">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="230.0" layoutY="325.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Informaçoes de login">
+               <font>
+                  <Font name="Arial" size="44.0" />
+               </font>
+            </Text>
+            <Text layoutX="62.0" layoutY="357.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" wrappingWidth="97.00000211596489">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <TextField fx:id="tfUsername" layoutX="152.0" layoutY="339.0" />
+            <Text layoutX="62.0" layoutY="397.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login:" wrappingWidth="97.00000211596489">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <TextField fx:id="tfLogin" layoutX="152.0" layoutY="379.0" />
+            <ComboBox fx:id="cbxSigno" layoutX="155.0" layoutY="423.0" prefWidth="150.0" />
+            <Text layoutX="62.0" layoutY="441.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Signo:" wrappingWidth="97.00000211596489">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <DatePicker fx:id="dtNacimento" layoutX="209.0" layoutY="248.0" />
+            <ComboBox fx:id="cbxUF" layoutX="499.0" layoutY="89.0" prefWidth="150.0" />
+            <ComboBox fx:id="cbxCidade" layoutX="499.0" layoutY="127.0" prefWidth="150.0" />
+            <Text layoutX="426.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cidade:" wrappingWidth="69.89648342132568">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="450.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="UF:" wrappingWidth="45.330078125">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
