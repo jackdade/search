@@ -56,11 +56,7 @@ public class CidadeJDBC implements CidadeDAO {
 		
 	}
 
-	@Override
-	public void excluir(Long codigo) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 	@Override
 	public Cidade get(Long codigo) {
