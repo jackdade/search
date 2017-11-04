@@ -75,6 +75,12 @@ public class CadastroControle   {
     void onMasculino(ActionEvent event) {
 
     }
+    
+    @FXML
+    void onUF(ActionEvent event) {
+    	cbxCidade.setItems(FXCollections.observableArrayList(CidadeDAO.listar()));
+
+    }
 
   
     
@@ -82,6 +88,7 @@ public class CadastroControle   {
    private signoDAO signoDao = DaoFactory.get().signoDao();
    private UFDao UFDao = DaoFactory.get().UFDao();
    private CidadeDAO CidadeDAO = DaoFactory.get().CidadeDAO();
+ 
     
     // salvando informaçoes
     
@@ -93,8 +100,6 @@ public class CadastroControle   {
 	public void initialize() {
     	cbxSigno.setItems(FXCollections.observableArrayList(signoDao.listar()));
     	cbxUF.setItems(FXCollections.observableArrayList(UFDao.listar()));
-    	cbxCidade.setItems(FXCollections.observableArrayList(CidadeDAO.listar()));
-		
 	}
     
   

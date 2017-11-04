@@ -12,19 +12,19 @@ import classes.UF;
 
 
 
+
 public class CidadeJDBC implements CidadeDAO {
 	
-	private UF uf;
-	
+	private UFJDBC uf;
 	@Override
 	public List<Cidade> listar() {
 		List<Cidade> cidades = new ArrayList<>();
 		try {
 			Connection con = ConexaoUtil.getCon();
-			// Classe que sabe executar comandos SQL
+			// Classe que sabe executar comandos SQL                       
 			Statement stmt = con.createStatement();
 			// Comando sql que desejo executar
-			String sql = "select * from cidade where id";
+			String sql = "select cidade.* from cidade where idUF order by(cidade.nomecidade)";
 			// Execução do comando e o resultado é
 			// armazenado no ResultSet
 			ResultSet rs = stmt.executeQuery(sql);
@@ -66,7 +66,7 @@ public class CidadeJDBC implements CidadeDAO {
 			// Classe que sabe executar comandos SQL
 			Statement stmt = con.createStatement();
 			// Comando sql que desejo executar
-			String sql = "select * from cidade where idUF=" + uf.getCodigo();
+			String sql = "select * from cidade where idUF="+ codigo;
 			// Execução do comando e o resultado é
 			// armazenado no ResultSet
 			ResultSet rs = stmt.executeQuery(sql);
@@ -83,6 +83,12 @@ public class CidadeJDBC implements CidadeDAO {
 			e.printStackTrace();
 		}
 		return cidade;
+	}
+
+	@Override
+	public void excluir(Long codigo) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
