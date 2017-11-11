@@ -1,6 +1,8 @@
 package telas;
 
 
+import java.util.List;
+
 import bancoDeDados.CidadeDAO;
 import bancoDeDados.DaoFactory;
 import bancoDeDados.UFDao;
@@ -76,9 +78,15 @@ public class CadastroControle   {
 
     }
     
+   
     @FXML
     void onUF(ActionEvent event) {
-    	cbxCidade.setItems(FXCollections.observableArrayList(CidadeDAO.listar()));
+    	List<Cidade> cidades = CidadeDAO.buscaPorUf(cbxUF.getSelectionModel().getSelectedItem());
+    	cbxCidade.setItems(FXCollections.observableArrayList(cidades));
+    	
+    	
+    	
+    	
 
     }
 
@@ -96,10 +104,14 @@ public class CadastroControle   {
 	void onSalvar(ActionEvent event) {
    
 	}
+    
+  
+    
     @FXML
 	public void initialize() {
     	cbxSigno.setItems(FXCollections.observableArrayList(signoDao.listar()));
     	cbxUF.setItems(FXCollections.observableArrayList(UFDao.listar()));
+    	
 	}
     
   
