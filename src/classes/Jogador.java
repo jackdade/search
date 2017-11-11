@@ -78,6 +78,14 @@ public class Jogador implements Serializable, RenderizaCombo {
 		return this.nomeJogador + " " + this.Sobrenome;
 	}
 	
+	public Long getCodigo1() {
+		return Codigo;
+	}
+
+	public void setCodigo1(Long idJogador) {
+		this.Codigo = idJogador;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
