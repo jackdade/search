@@ -26,4 +26,9 @@ private static DaoFactory daoFactory;
 		return new CidadeJDBC();
 	}
 
+	public jogadorDAO jogadorDAO() {
+		// TODO Auto-generated method stub
+		return new jogadorJDBC();
+	}
+
 }

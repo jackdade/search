@@ -21,16 +21,15 @@ public class jogadorJDBC implements jogadorDAO {
 	public void inserir(Jogador jogador) {
 		try {
 		Connection con = ConexaoUtil.getCon();
-		String insert = "insert into cliente values(idJogador,?,?,?,?)";
+		String insert = "insert into jogador values(idJogador,?,?,?,?,?,?,?)";
 		PreparedStatement insertStmt = con.prepareStatement(insert, Statement.RETURN_GENERATED_KEYS);
 		insertStmt.setString(1, jogador.getNomeJogador());
-		insertStmt.setString(2, jogador.getSobrenome());
-		insertStmt.setString(3, jogador.getSexo());
-		insertStmt.setString(4, jogador.getCPF());
-		insertStmt.setDate(5, Date.valueOf(jogador.getIdade()));
-		insertStmt.setLong(7, jogador.getSigno().getCodigo());
-		insertStmt.setLong(6, jogador.getCidade().getCodigo());
-		insertStmt.setLong(5, jogador.getCodigo());
+		insertStmt.setString(7, jogador.getSobrenome());
+		insertStmt.setString(6, jogador.getSexo());
+		insertStmt.setString(2, jogador.getCPF());
+		insertStmt.setDate(3, Date.valueOf(jogador.getIdade()));
+		insertStmt.setLong(5, jogador.getSigno().getCodigo());
+		insertStmt.setLong(4, jogador.getCidade().getCodigo());
 		insertStmt.executeUpdate();
 		ResultSet resultSet = insertStmt.getGeneratedKeys();
 		resultSet.next();
@@ -53,13 +52,12 @@ public class jogadorJDBC implements jogadorDAO {
 					+ " where idJogador = ? ";
 			PreparedStatement updateStmt = con.prepareStatement(update);
 			updateStmt.setString(1, jogador.getNomeJogador());
-			updateStmt.setString(2, jogador.getSobrenome());
-			updateStmt.setString(3, jogador.getSexo());
-			updateStmt.setString(4, jogador.getCPF());
-			updateStmt.setDate(5, Date.valueOf(jogador.getIdade()));
-			updateStmt.setLong(7, jogador.getSigno().getCodigo());
-			updateStmt.setLong(6, jogador.getCidade().getCodigo());
-			updateStmt.setLong(5, jogador.getCodigo());
+			updateStmt.setString(7, jogador.getSobrenome());
+			updateStmt.setString(6, jogador.getSexo());
+			updateStmt.setString(2, jogador.getCPF());
+			updateStmt.setDate(3, Date.valueOf(jogador.getIdade()));
+			updateStmt.setLong(5, jogador.getSigno().getCodigo());
+			updateStmt.setLong(4, jogador.getCidade().getCodigo());
 			updateStmt.executeUpdate();
 		} catch (SQLException ex) {
 			ex.printStackTrace();
