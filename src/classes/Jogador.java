@@ -78,6 +78,25 @@ public class Jogador implements Serializable, RenderizaCombo {
 		return this.nomeJogador + " " + this.Sobrenome;
 	}
 	
+	public Cidade getcidade() {
+		return cidade;
+	}
+
+	public void setcidade(Cidade cidade) {
+		this.cidade = cidade;
+	}
+	
+	public Signo getsigno() {
+		return signo;
+	}
+	public void setsigno(Signo signo) {
+		this.signo = signo;
+	}
+	
+	
+	
+	
+	
 	public Long getCodigo1() {
 		return Codigo;
 	}
