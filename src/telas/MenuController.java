@@ -29,7 +29,7 @@ public class MenuController{
     @FXML
     void onLogin(ActionEvent event) {
     	FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(getClass().getResource("LoginControle l.fxml"));
+		loader.setLocation(getClass().getResource("LoginTela.fxml"));
 		try {
 			AnchorPane cadastroView = (AnchorPane) loader.load();
 			bpPrincipal.setCenter(cadastroView);
@@ -50,6 +50,9 @@ public class MenuController{
 		}
 
     }
+    
+  
+	
     }
 
 

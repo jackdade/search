@@ -1,8 +1,9 @@
 package telas;
 
 
-import java.util.List;
 
+import java.io.IOException;
+import java.util.List;
 import bancoDeDados.CidadeDAO;
 import bancoDeDados.DaoFactory;
 import bancoDeDados.UFDao;
@@ -15,6 +16,10 @@ import classes.UF;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -26,7 +31,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 
-public class CadastroControle   {
+public class CadastroControle extends MenuController  {
 	@FXML
     private TextField tfSobrenome;
 
@@ -89,7 +94,7 @@ public class CadastroControle   {
    private jogadorDAO jogadorDao = DaoFactory.get().jogadorDAO();
    private Jogador jogador;
    private boolean editando;
-   private MenuController menu;
+
  
   
  
@@ -161,8 +166,18 @@ public class CadastroControle   {
     
     @FXML
     void onLogin(ActionEvent Event){
-    	 
-    	 
+
+    	Node node = (Node) Event.getSource();
+		Stage stage = (Stage) node.getScene().getWindow();
+		Parent root = null;
+		try {
+			root = FXMLLoader.load(getClass().getResource("LoginTela.fxml"));
+			
+		} catch (IOException ex) {
+		}
+		Scene scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
     	 
     }
     
