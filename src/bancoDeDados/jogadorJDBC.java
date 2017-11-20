@@ -1,3 +1,6 @@
+
+
+
 package bancoDeDados;
 
 import java.sql.Connection;
@@ -21,7 +24,7 @@ public class jogadorJDBC implements jogadorDAO {
 	public void inserir(Jogador jogador) {
 		try {
 		Connection con = ConexaoUtil.getCon();
-		String insert = "insert into jogador values(idJogador,?,?,?,?,?,?,?)";
+		String insert = "insert into jogador values(idJogador,?,?,?,?,?,?,?,?,?)";
 		PreparedStatement insertStmt = con.prepareStatement(insert, Statement.RETURN_GENERATED_KEYS);
 		insertStmt.setString(1, jogador.getNomeJogador());
 		insertStmt.setString(7, jogador.getSobrenome());
@@ -30,6 +33,8 @@ public class jogadorJDBC implements jogadorDAO {
 		insertStmt.setDate(3, Date.valueOf(jogador.getIdade()));
 		insertStmt.setLong(5, jogador.getSigno().getCodigo());
 		insertStmt.setLong(4, jogador.getCidade().getCodigo());
+		insertStmt.setString(8, jogador.getUsername());
+		insertStmt.setString(9, jogador.getSenha());
 		insertStmt.executeUpdate();
 		ResultSet resultSet = insertStmt.getGeneratedKeys();
 		resultSet.next();
@@ -48,7 +53,7 @@ public class jogadorJDBC implements jogadorDAO {
 	public void alterar(Jogador jogador) {
 		try {
 			Connection con = ConexaoUtil.getCon();
-			String update = "update jogador set nomeJogador = ?, " + "sobrenome = ?, sexo=?, cpf = ?, idade = ?, idSigno = ?, idCidade=?"
+			String update = "update jogador set nomeJogador = ?, " + "sobrenome = ?, sexo=?, cpf = ?, idade = ?, idSigno = ?, idCidade=?, username=?, senha=?,"
 					+ " where idJogador = ? ";
 			PreparedStatement updateStmt = con.prepareStatement(update);
 			updateStmt.setString(1, jogador.getNomeJogador());
@@ -58,6 +63,8 @@ public class jogadorJDBC implements jogadorDAO {
 			updateStmt.setDate(3, Date.valueOf(jogador.getIdade()));
 			updateStmt.setLong(5, jogador.getSigno().getCodigo());
 			updateStmt.setLong(4, jogador.getCidade().getCodigo());
+			updateStmt.setString(8, jogador.getUsername());
+			updateStmt.setString(9, jogador.getSenha());
 			updateStmt.executeUpdate();
 		} catch (SQLException ex) {
 			ex.printStackTrace();
@@ -98,6 +105,8 @@ public class jogadorJDBC implements jogadorDAO {
 				jogador.setCPF(rs.getString("cpf"));
 				jogador.setIdade(rs.getDate("idade").toLocalDate());
 				jogador.setSexo(rs.getString("sexo"));
+				jogador.setSenha(rs.getString("senha"));
+				jogador.setUsername(rs.getString("username"));
 				
 				
 				Cidade Cidade= new Cidade();
@@ -138,6 +147,8 @@ public class jogadorJDBC implements jogadorDAO {
 			jogador.setCPF(rs.getString("cpf"));
 			jogador.setIdade(rs.getDate("idade").toLocalDate());
 			jogador.setSexo(rs.getString("sexo"));
+			jogador.setSenha(rs.getString("senha"));
+			jogador.setUsername(rs.getString("username"));
 			
 			
 			Cidade Cidade= new Cidade();

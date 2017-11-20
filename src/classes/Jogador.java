@@ -17,6 +17,8 @@ public class Jogador implements Serializable, RenderizaCombo {
 	private LocalDate idade;
 	private String sexo;
 	private String Sobrenome;
+	private String senha;
+	private String username;
 	
 	private Cidade cidade;
 	private Signo signo;
@@ -71,8 +73,18 @@ public class Jogador implements Serializable, RenderizaCombo {
 		this.signo = signo;
 	}
 	
-	//
-	
+	public String getSenha() {
+		return senha;
+	}
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
 	@Override
 	public String toString() {
 		return this.nomeJogador + " " + this.Sobrenome;

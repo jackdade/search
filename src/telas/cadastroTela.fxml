@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telas.CadastroControle">
+<AnchorPane fx:id="achCadastro" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telas.CadastroControle">
    <children>
       <Pane prefHeight="600.0" prefWidth="800.0">
          <children>
@@ -50,12 +50,12 @@
                   <Font size="16.0" />
                </font>
             </Text>
-            <RadioButton fx:id="rdMaculino" layoutX="127.0" layoutY="218.0" mnemonicParsing="false" onAction="#onMasculino" text="Masculino">
+            <RadioButton fx:id="rdMaculino" layoutX="127.0" layoutY="218.0" mnemonicParsing="false" text="Masculino">
                <toggleGroup>
                   <ToggleGroup fx:id="grupoSexo" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="rdFeminino" layoutX="226.0" layoutY="218.0" mnemonicParsing="false" onAction="#onFeminino" text="Feminino" toggleGroup="$grupoSexo" />
+            <RadioButton fx:id="rdFeminino" layoutX="226.0" layoutY="218.0" mnemonicParsing="false" text="Feminino" toggleGroup="$grupoSexo" />
             <Text layoutX="38.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data De Nascimento :" wrappingWidth="177.330078125">
                <font>
                   <Font size="16.0" />
@@ -72,12 +72,12 @@
                </font>
             </Text>
             <TextField fx:id="tfUsername" layoutX="152.0" layoutY="339.0" />
-            <Text layoutX="62.0" layoutY="397.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login:" wrappingWidth="97.00000211596489">
+            <Text layoutX="62.0" layoutY="397.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Senha:" wrappingWidth="97.00000211596489">
                <font>
                   <Font size="16.0" />
                </font>
             </Text>
-            <TextField fx:id="tfLogin" layoutX="152.0" layoutY="379.0" />
+            <TextField fx:id="tfSenha" layoutX="152.0" layoutY="379.0" />
             <ComboBox fx:id="cbxSigno" layoutX="155.0" layoutY="423.0" prefWidth="150.0" />
             <Text layoutX="62.0" layoutY="441.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Signo:" wrappingWidth="97.00000211596489">
                <font>

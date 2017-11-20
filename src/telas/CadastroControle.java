@@ -3,7 +3,6 @@ package telas;
 
 import java.util.List;
 
-
 import bancoDeDados.CidadeDAO;
 import bancoDeDados.DaoFactory;
 import bancoDeDados.UFDao;
@@ -23,6 +22,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 
@@ -55,7 +55,7 @@ public class CadastroControle   {
     private TextField tfUsername;
 
     @FXML
-    private TextField tfLogin;
+    private TextField tfSenha;
 
     @FXML
     private ComboBox<Signo> cbxSigno;
@@ -69,19 +69,8 @@ public class CadastroControle   {
     private DatePicker dtNacimento;
 
     @FXML
-    void onFeminino(ActionEvent event) {
+    private AnchorPane achCadastro;
 
-    }
-
-    @FXML
-    void onLogin(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onMasculino(ActionEvent event) {
-
-    }
     
    // seleciona o estado e aparece a cidade
     @FXML
@@ -100,6 +89,9 @@ public class CadastroControle   {
    private jogadorDAO jogadorDao = DaoFactory.get().jogadorDAO();
    private Jogador jogador;
    private boolean editando;
+   private MenuController menu;
+ 
+  
  
     
     // salvando informaçoes
@@ -112,9 +104,12 @@ public class CadastroControle   {
     	jogador.setIdade(dtNacimento.getValue());
     	jogador.setsigno(cbxSigno.getValue());
     	jogador.setCidade(cbxCidade.getValue());
+    	jogador.setUsername(tfUsername.getText());
+    	jogador.setSenha(tfSenha.getText());
     	   
     	if(rdFeminino.isSelected()) {
     		jogador.setSexo("Feminino");
+    		
     	}else {
     		jogador.setSexo("Masculino");
     	}
@@ -144,7 +139,7 @@ public class CadastroControle   {
     private void limparCampos() {
 		tfNome.setText("");
 		tfCPF.setText("");
-		tfLogin.setText("");
+		tfSenha.setText("");
 		tfUsername.setText("");
 		tfSobrenome.setText("");
 		dtNacimento.setValue(null);
@@ -164,6 +159,14 @@ public class CadastroControle   {
 		novo();
 	}
     
+    @FXML
+    void onLogin(ActionEvent Event){
+    	 
+    	 
+    	 
+    }
+    
+ 
     
 	@FXML
 	void onEditar(MouseEvent mouseEvent) {
@@ -171,6 +174,8 @@ public class CadastroControle   {
 			tfNome.setText(jogador.getNomeJogador());
 			tfCPF.setText(jogador.getCPF());
 			tfSobrenome.setText(jogador.getSobrenome());
+			tfUsername.setText(jogador.getUsername());
+			tfSenha.setText(jogador.getSenha());
 			
 			dtNacimento.setValue(jogador.getIdade());
 			// pega do objeto e coloca no combobox
