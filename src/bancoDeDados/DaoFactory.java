@@ -31,6 +31,10 @@ private static DaoFactory daoFactory;
 		return new jogadorJDBC();
 	}
 
+	public perguntaDAO perguntaDAO() {
+		// TODO Auto-generated method stub
+		return new PerguntaJdbc();
+	}
 	
 
 }

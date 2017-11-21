@@ -71,13 +71,13 @@
                   <Font size="16.0" />
                </font>
             </Text>
-            <TextField fx:id="tfUsername" layoutX="152.0" layoutY="339.0" />
+            <TextField fx:id="tfUsername" layoutX="152.0" layoutY="338.0" />
             <Text layoutX="62.0" layoutY="397.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Senha:" wrappingWidth="97.00000211596489">
                <font>
                   <Font size="16.0" />
                </font>
             </Text>
-            <TextField fx:id="tfSenha" layoutX="152.0" layoutY="379.0" />
+            <TextField fx:id="tfSenha" layoutX="152.0" layoutY="378.0" />
             <ComboBox fx:id="cbxSigno" layoutX="155.0" layoutY="423.0" prefWidth="150.0" />
             <Text layoutX="62.0" layoutY="441.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Signo:" wrappingWidth="97.00000211596489">
                <font>
