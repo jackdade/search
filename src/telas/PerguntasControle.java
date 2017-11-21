@@ -1,8 +1,13 @@
 package telas;
 
 
-import java.util.Collection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
+import com.mysql.jdbc.Connection;
+
+import bancoDeDados.ConexaoUtil;
 import bancoDeDados.DaoFactory;
 import bancoDeDados.perguntaDAO;
 import classes.Pergunta;
@@ -13,6 +18,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 
@@ -37,11 +43,8 @@ public class PerguntasControle {
     @FXML
     private RadioButton rdbE;
     
-    @FXML
-    private TableView<Pergunta> tvPergunta;
 
-    @FXML
-    private TableColumn<String, Pergunta> tbvPerguntas;
+   
 
     @FXML
     private TableColumn<?, ?> tbvRespostas;
@@ -50,7 +53,11 @@ public class PerguntasControle {
     private Button btnFinalizar;
 
     @FXML
+    private TextArea txPegunta;
+    
+    @FXML
     private Button btnProxima;
+    private Pergunta pergunta;
     
     private perguntaDAO perguntaDAO = DaoFactory.get().perguntaDAO();
 
@@ -64,15 +71,23 @@ public class PerguntasControle {
 
     }
     
-    @FXML
-    public void  atualizarPerguntas() {
-    	Collection<Pergunta> perguntas = perguntaDAO.listar();
-		tvPergunta.setItems(FXCollections.observableArrayList(perguntas));
-    }
+  
     
     @FXML
     public void initialize() {
-    	tbvPerguntas.setCellValueFactory(new PropertyValueFactory<>("pergunta"));
-    }
+    	try {
+        	Connection connection = (Connection) ConexaoUtil.getCon();
+    		Statement stmt = connection.createStatement();
+    		ResultSet rs = stmt.executeQuery("select*from sopergunta");
+    		rs.first();
+    	
+    		txPegunta.setText("ASD");
 
+    	} catch (SQLException e) {
+    		e.printStackTrace();
+    	}
+    	
+    	
+
+    	}
 }

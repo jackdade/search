@@ -52,8 +52,8 @@ public class PerguntaJdbc implements perguntaDAO{
 			ResultSet rs = stmt.executeQuery(sql);
 			rs.next();
 			pergunta = new Pergunta();
-			pergunta.setCodigo(rs.getLong("idSigno"));
-			pergunta.setPeguntas(rs.getString("nomeSigno"));
+			pergunta.setCodigo(rs.getLong("idPergunta"));
+			pergunta.setPeguntas(rs.getString("pergunta"));
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
