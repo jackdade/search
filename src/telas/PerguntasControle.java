@@ -57,9 +57,6 @@ public class PerguntasControle {
     
     @FXML
     private Button btnProxima;
-    private Pergunta pergunta;
-    
-    private perguntaDAO perguntaDAO = DaoFactory.get().perguntaDAO();
 
     @FXML
     void onFinalizar(ActionEvent event) {
@@ -68,20 +65,32 @@ public class PerguntasControle {
 
     @FXML
     void onProxima(ActionEvent event) {
+    	soma = soma +1;
+    	try {
+        	Connection connection = (Connection) ConexaoUtil.getCon();
+    		Statement stmt = connection.createStatement();
+    		ResultSet rs = stmt.executeQuery("select*from sopergunta where idPergunta ="+ soma);
+    		rs.first();
+    	
+    		txPegunta.setText(rs.getString("pergunta"));
+
+    	} catch (SQLException e) {
+    		e.printStackTrace();
+    	}
 
     }
     
-  
+  private int soma = 1;
     
     @FXML
     public void initialize() {
     	try {
         	Connection connection = (Connection) ConexaoUtil.getCon();
     		Statement stmt = connection.createStatement();
-    		ResultSet rs = stmt.executeQuery("select*from sopergunta");
+    		ResultSet rs = stmt.executeQuery("select*from sopergunta where idPergunta ="+ soma);
     		rs.first();
     	
-    		txPegunta.setText("ASD");
+    		txPegunta.setText(rs.getString("pergunta"));
 
     	} catch (SQLException e) {
     		e.printStackTrace();
