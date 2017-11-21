@@ -35,6 +35,15 @@ private static DaoFactory daoFactory;
 		// TODO Auto-generated method stub
 		return new PerguntaJdbc();
 	}
+	public respostaDAO respostaDAO() {
+		// TODO Auto-generated method stub
+		return new respostaJDBC();
+	}
+	public alternativaDao alternativaDao() {
+		// TODO Auto-generated method stub
+		return new AlternativaJDBC();
+	}
+	
 	
 
 }
