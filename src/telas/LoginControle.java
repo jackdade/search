@@ -30,20 +30,32 @@ public class LoginControle {
     @FXML
     private Button btnLogin;
     
-    
-    
-    @FXML
+   
+    private long id;
+ 
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+
+	@FXML
 	void onLogar(ActionEvent event) {
     try {
     	Connection connection = (Connection) ConexaoUtil.getCon();
 		Statement stmt = connection.createStatement();
-		ResultSet rs = stmt.executeQuery("select username, senha from jogador");
+		ResultSet rs = stmt.executeQuery("select username, senha, idJogador from jogador");
 		rs.first();
 		if (tfUsrname.getText().equals("") || (tfPassword.getText().equals(""))) {
 			JOptionPane.showMessageDialog(null, "Campos não podem ser nulos.");
 		}
 		if (tfUsrname.getText().equals(rs.getString("username"))
 				&& (tfPassword.getText().equals(rs.getString("senha")))) {
+			
+			setId(rs.getInt("idJogador"));
 			Node node = (Node) event.getSource();
 			Stage stage = (Stage) node.getScene().getWindow();
 			Parent root = null;
@@ -64,7 +76,10 @@ public class LoginControle {
 	} catch (SQLException e) {
 		e.printStackTrace();
 	}
+    
 
 }
+	
+	
 }
 

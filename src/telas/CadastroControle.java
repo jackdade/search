@@ -3,8 +3,11 @@ package telas;
 
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.List;
+
 import bancoDeDados.CidadeDAO;
+import bancoDeDados.ConexaoUtil;
 import bancoDeDados.DaoFactory;
 import bancoDeDados.UFDao;
 import bancoDeDados.jogadorDAO;
@@ -29,6 +32,10 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 
 
 public class CadastroControle extends MenuController  {
@@ -75,6 +82,18 @@ public class CadastroControle extends MenuController  {
 
     @FXML
     private AnchorPane achCadastro;
+    @FXML
+    private Button btnGerar;
+    
+    
+
+    @FXML
+	void onReport (ActionEvent event) throws JRException {
+		URL url = getClass().getResource("/search/src/Cherry.jrxml");
+		JasperPrint print = JasperFillManager.fillReport(url.getPath(), null, ConexaoUtil.getCon());
+		JasperViewer.viewReport(print);
+	}
+
 
     
    // seleciona o estado e aparece a cidade

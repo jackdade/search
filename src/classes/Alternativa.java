@@ -12,25 +12,37 @@ public class Alternativa implements Serializable, RenderizaCombo{
 	private Long Codigo;
 	private String Alternativa;
 	private Respostas respota;
+	
+	
+	
+	
+	
+	
+	
 	public Long getCodigo() {
 		return Codigo;
 	}
+
 	public void setCodigo(Long codigo) {
 		Codigo = codigo;
 	}
+
 	public String getAlternativa() {
 		return Alternativa;
 	}
+
 	public void setAlternativa(String alternativa) {
 		Alternativa = alternativa;
 	}
+
 	public Respostas getRespota() {
 		return respota;
 	}
+
 	public void setRespota(Respostas respota) {
 		this.respota = respota;
 	}
-	
+
 	@Override
 	public String toString() {
 		return this.Alternativa;

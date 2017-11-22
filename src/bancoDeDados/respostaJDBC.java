@@ -76,25 +76,18 @@ public class respostaJDBC implements respostaDAO{
 				
 				Jogador jogador = new Jogador();
 				jogador.setCodigo(rs.getLong("idJogador"));
-				jogador.setNomeJogador(rs.getString("nomeJogador"));
-				jogador.setSobrenome(rs.getString("sobrenome"));
-				jogador.setCPF(rs.getString("cpf"));
-				jogador.setIdade(rs.getDate("idade").toLocalDate());
-				jogador.setSexo(rs.getString("sexo"));
-				jogador.setSenha(rs.getString("senha"));
-				jogador.setUsername(rs.getString("username"));
 				
 				
 				Alternativa alternativa = new Alternativa();
 				alternativa.setCodigo(rs.getLong("idAlternativa"));
-				alternativa.setAlternativa(rs.getString("alternativa"));
-				respostas.add(resposta);
+				
+				
 				
 				Pergunta pergunta = new Pergunta();
 				pergunta.setCodigo(rs.getLong("idPergunta"));
 				pergunta.setPeguntas(rs.getString("pergunta"));
 				
-				
+				respostas.add(resposta);
 				
 			}
 		} catch (SQLException e) {

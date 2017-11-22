@@ -11,8 +11,8 @@
    <children>
       <Pane prefHeight="600.0" prefWidth="800.0">
          <children>
-            <TextArea layoutX="255.0" layoutY="84.0" prefHeight="432.0" prefWidth="363.0" text="Escrever como jogar aqui" />
-            <Text layoutX="255.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Como jogar">
+            <TextArea layoutX="173.0" layoutY="71.0" prefHeight="432.0" prefWidth="524.0" text="-Esse jogo contém 5 perguntas&#10;- para cada pergunta você terá três resposta: ”SIM”,”NÃO”,”IDECISO”.&#10;- Respondendo ao mínimo 3 perguntas você poderá buscar ser par perfeito&#10;- Para jogar você terá o botão próxima pergunta que vai avançando as perguntas&#10;- Cada vez que você clicar nesse botão sua resposta que está abaixo ficará salva e não poderá&#10;altera-la.&#10;-Já para selecionar a resposta é só você navegar pelos botões anterior e próximo.&#10;- Depois disso é só ir para a tela de procurar e ver a pessoa ou as pessoas que combinam com&#10;você." />
+            <Text layoutX="325.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Como jogar">
                <font>
                   <Font name="Candara Italic" size="32.0" />
                </font>

@@ -12,34 +12,47 @@ public class Respostas implements Serializable, RenderizaCombo {
 	private Pergunta pergunta;
 	private Alternativa alternativa;
 	private Jogador jogador;
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public Long getCodigo() {
 		return Codigo;
 	}
+
 	public void setCodigo(Long codigo) {
 		Codigo = codigo;
 	}
+
 	public Pergunta getPergunta() {
 		return pergunta;
 	}
+
 	public void setPergunta(Pergunta pergunta) {
 		this.pergunta = pergunta;
 	}
+
 	public Alternativa getAlternativa() {
 		return alternativa;
 	}
+
 	public void setAlternativa(Alternativa alternativa) {
 		this.alternativa = alternativa;
 	}
+
 	public Jogador getJogador() {
 		return jogador;
 	}
+
 	public void setJogador(Jogador jogador) {
 		this.jogador = jogador;
 	}
-	
-	
-	
-	
+
 	public Long getCodigo1() {
 		return Codigo;
 	}
@@ -77,6 +90,7 @@ public class Respostas implements Serializable, RenderizaCombo {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
 	
 
 }
