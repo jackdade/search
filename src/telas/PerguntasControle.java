@@ -117,7 +117,7 @@ public class PerguntasControle {
     		Connection con = (Connection) ConexaoUtil.getCon();
     		String insert = "insert into respostas values(idRespostas,?,?,?)";
     		PreparedStatement insertStmt = con.prepareStatement(insert, Statement.RETURN_GENERATED_KEYS);
-    		insertStmt.setLong(1, 1);
+    		insertStmt.setLong(1, loginControle.getId());
     		insertStmt.setLong(2, soma);
     		insertStmt.setLong(3, somaresposta);
     		insertStmt.executeUpdate();
